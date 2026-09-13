@@ -1,100 +1,21 @@
 <!DOCTYPE html>
-<html lang = "es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Calculadora </title>
-        <link rel="stylesheet" href="estiloscalculadora.css">
-    </head>
-    <body>   
-    <div class="calculadora">
-        <input type="text" id="pantalla" readonly>
-        <div class="botones">
-             <!--Operaciones-->
-            <button class="botonoperador" onclick="agregar('+')">+</button>
-            <button class="botonoperador" onclick="agregar('-')">-</button>
-            <button class="botonoperador" onclick="agregar('*')">x</button>
-            <button class="botonoperador" onclick="agregar('/')">/</button>
-            
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="estiloscalculadora.css">
+</head>
 
-             <!--Botones numéricos-->
-            <button class="botoncero" onclick="agregar('0')">0</button>
-            <button class="botonnormal" onclick="agregar('1')">1</button>
-            <button class="botonnormal" onclick="agregar('2')">2</button>
-            <button class="botonnormal" onclick="agregar('3')">3</button>
-            <button class="botonnormal" onclick="agregar('4')">4</button>
-            <button class="botonnormal" onclick="agregar('5')">5</button>
-            <button class="botonnormal" onclick="agregar('6')">6</button>
-            <button class="botonnormal" onclick="agregar('7')">7</button>
-            <button class="botonnormal" onclick="agregar('8')">8</button>
-            <button class="botonnormal" onclick="agregar('9')">9</button>
+<body>
 
-            <!--Botones especiales-->
-            <button class="borrartodo" onclick="limpiar()">C</button>
-            <button class="botonnormal" onclick="agregar('.')">.</button>
-            <button class="botonigual" onclick="calcular()">=</button>
-        </div>
-    </div>
-    <!--java -->
-    <script>
-        const pantalla = document.getElementById("pantalla");
+    <!-- JavaScript va a crear todo el contenido -->
+    <div id="app"></div>
 
-        //para escribir el numero o simbolo en la pantalla
-        //creamos la variable valor
-        function agregar (valor) {
-            pantalla.value = pantalla.value + valor;
-        }
+    <script src="calculadora.js"></script>
 
-        //para borrar todo
-        function limpiar(){
-            pantalla.value = "";
-        }
-
-        //ahora para las operaciones
-        function calcular (){
-            let texto = pantalla.value;
-            let operador = "";
-            if(texto.includes('-'))operador = '-';
-            else if(texto.includes('+'))operador = '+';
-            else if(texto.includes('*'))operador = '*';
-            else if(texto.includes('/'))operador = '/';
-            
-            if (operador === "") return;
-
-            let partes = texto.split(operador);
-            let num1 = Number(partes[0]);
-            let num2 = Number(partes[1]);
-
-            switch(operador){
-                 case'+':
-                pantalla.value = num1 + num2;
-                break;
-
-                 case'-':
-                pantalla.value = num1 - num2;
-                break
-
-                 case'*':
-                pantalla.value = num1 * num2;
-                break
-
-                 case'/':
-                 if (num2 === 0){
-                      pantalla.value = "ERROR";
-                 }
-                 else{
-                      pantalla.value = num1 / num2;
-                 }
-                 break
-                 
-              
-
-
-            }
-
-            
-
-        }
-    </script>
-
+</body>
 </html>
+
+
+
